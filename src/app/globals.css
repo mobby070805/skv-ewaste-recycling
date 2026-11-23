@@ -1,0 +1,271 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Brand palette */
+  --color-forest: #153d30;
+  --color-forest-deep: #0f2e24;
+  --color-forest-soft: #1d4a3b;
+  --color-graphite: #202925;
+  --color-charcoal: #161b18;
+  --color-ivory: #f6f3ec;
+  --color-ivory-deep: #ece7dc;
+  --color-paper: #f6f3ec;
+  --color-lime: #a8c66c;
+  /* Darker sage for small marks on light backgrounds (contrast) */
+  --color-lime-deep: #5d7a2b;
+  --color-line: #e2dccf;
+
+  /* Approved reference design (rich green system) */
+  --color-brand: #0a6a22;
+  --color-brand-bright: #0b7a28;
+  --color-brand-deep: #014e2c;
+  --color-brand-night: #01341c;
+  --color-brand-ink: #03331e;
+  --color-accent: #3d9f25;
+  --color-ink: #172823;
+  --color-cream: #faf8f3;
+  --color-rule: #dedcd5;
+  --color-muted: #5b6460;
+
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+
+  --ease-out-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-ivory);
+  color: var(--color-graphite);
+  font-family: var(--font-sans);
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-lime);
+  color: var(--color-graphite);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-lime);
+  outline-offset: 3px;
+}
+
+/* ---------- Layout primitives ---------- */
+@utility shell {
+  width: 100%;
+  max-width: 88rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (width >= 40rem) {
+    padding-inline: 2rem;
+  }
+  @media (width >= 64rem) {
+    padding-inline: 3.5rem;
+  }
+}
+
+@utility section-y {
+  padding-block: 4.5rem;
+  @media (width >= 48rem) {
+    padding-block: 6rem;
+  }
+  @media (width >= 80rem) {
+    padding-block: 7.5rem;
+  }
+}
+
+/* ---------- Typography ---------- */
+@utility display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+}
+
+/* Section heading: capped so it never dominates its composition */
+@utility h-section {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  text-wrap: balance;
+  font-size: clamp(1.85rem, 1.25rem + 2.2vw, 3rem);
+}
+
+/* Chapter heading over photography */
+@utility h-chapter {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  text-wrap: balance;
+  font-size: clamp(2.2rem, 1.2rem + 3.8vw, 4.5rem);
+}
+
+/* Muted second clause inside a heading */
+@utility accent {
+  color: color-mix(in oklab, currentColor 50%, transparent);
+}
+
+@utility label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+@utility lede {
+  font-size: clamp(1.02rem, 0.96rem + 0.3vw, 1.17rem);
+  line-height: 1.72;
+  text-wrap: pretty;
+}
+
+/* ---------- Film grain for dark sections ---------- */
+.grain {
+  position: relative;
+  isolation: isolate;
+}
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+/* Layered so utilities such as .absolute on children still win */
+@layer components {
+  .grain > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+/* ---------- Scroll reveal (single, restrained motion) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 1.25rem, 0);
+  transition:
+    opacity 0.9s var(--ease-out-soft),
+    transform 0.9s var(--ease-out-soft);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Gentle image parallax (see ScrollScene.tsx) ---------- */
+/* Fallback of 1 means "at rest" when the variable is not set. */
+.scene-img {
+  transform: scale(calc(1.14 - 0.14 * var(--pass, 1)));
+  will-change: transform;
+}
+
+/* ---------- Hero entrance ---------- */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 1rem, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.rise {
+  animation: rise 1s var(--ease-out-soft) both;
+  animation-delay: var(--delay, 0ms);
+}
+
+/* ---------- Recycling banner slider ---------- */
+/* Indicator fill; its animationend advances the slide, so pausing the
+   animation (hover, focus) also pauses autoplay without a JS timer. */
+@keyframes slide-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.slide-progress {
+  animation: slide-progress var(--slide-ms, 2000ms) linear forwards;
+}
+/* Gentle settle on the incoming photograph. */
+@keyframes slide-settle {
+  from {
+    transform: scale(1.045);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.slide-settle {
+  animation: slide-settle 6.5s var(--ease-out-soft, ease-out) both;
+}
+
+/* ---------- Phone swipe rows ----------
+   Below 768px a list with .swipe-row becomes a horizontal, snap-scrolling
+   row of cards that bleeds to the screen edges; the next card peeks in so it
+   reads as swipeable. Unlayered on purpose so it overrides grid utilities. */
+@media (max-width: 767px) {
+  .swipe-row {
+    --swipe-gutter: 1.25rem;
+    /* Positioned so absolutely-placed children (e.g. sr-only labels) are clipped too */
+    position: relative;
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--swipe-gutter);
+    margin-inline: calc(-1 * var(--swipe-gutter));
+    padding-inline: var(--swipe-gutter);
+    padding-bottom: 0.5rem;
+    scrollbar-width: none;
+  }
+  .swipe-row::-webkit-scrollbar {
+    display: none;
+  }
+  .swipe-row > * {
+    flex: 0 0 var(--swipe-card, 82%);
+    scroll-snap-align: start;
+    margin: 0 !important;
+  }
+}
+@media (min-width: 640px) and (max-width: 767px) {
+  .swipe-row {
+    --swipe-gutter: 2rem;
+    --swipe-card: 60%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .slide-settle,
+  .slide-progress {
+    animation: none !important;
+  }
+  .scene-img {
+    transform: none !important;
+  }
+  .reveal,
+  .rise {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
