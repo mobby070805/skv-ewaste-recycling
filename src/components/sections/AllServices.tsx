@@ -20,7 +20,7 @@ const services: { name: ServiceName; body: string }[] = [
     body: "Certified erasure that leaves devices ready for reuse, with a report and certificate for each one.",
   },
   {
-    name: "Data Sanitization",
+    name: "Data Sanitisation",
     body: "The right method for every storage device, chosen by whether it will be reused, resold or recycled.",
   },
   {

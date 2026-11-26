@@ -6,7 +6,7 @@ import office from "@/assets/images/service-office.webp";
 import hdd from "@/assets/images/service-hdd.webp";
 import blancco from "@/assets/images/svc-blancco.webp";
 import buyback from "@/assets/images/svc-buyback.webp";
-import sanitization from "@/assets/images/svc-sanitization.webp";
+import sanitisation from "@/assets/images/svc-sanitization.webp";
 import { Arrow } from "@/components/ui/Button";
 import { EnquiryLink } from "@/components/ui/EnquiryLink";
 import { Reveal } from "@/components/ui/Reveal";
@@ -57,11 +57,11 @@ const services: Service[] = [
     alt: "Laptop displaying a command-line screen during a data erasure process",
   },
   {
-    name: "Data Sanitization",
+    name: "Data Sanitisation",
     tag: "Data security",
     body: "Permanent removal of sensitive information from storage devices using approved methods — data wiping, degaussing or physical drive destruction.",
-    cta: "Discuss Data Sanitization",
-    image: sanitization,
+    cta: "Discuss Data Sanitisation",
+    image: sanitisation,
     alt: "Technician removing a solid-state drive from an opened laptop",
   },
   {

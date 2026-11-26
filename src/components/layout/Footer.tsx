@@ -39,7 +39,7 @@ const linkCls = "inline-block py-1.5 text-[0.94rem] text-white/70 transition-col
 const usefulLinks = [
   { label: "What We Recycle", href: "/#what-we-recycle" },
   { label: "IT Asset Management", href: "/#it-asset-management" },
-  { label: "Data Destruction", href: "/#service-data-sanitization" },
+  { label: "Data Destruction", href: "/#service-data-sanitisation" },
   { label: "Recycling Process", href: "/#process" },
   { label: "Locations", href: "/#locations" },
   { label: "FAQs", href: "/#faq" },

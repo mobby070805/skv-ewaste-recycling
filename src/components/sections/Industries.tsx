@@ -256,7 +256,7 @@ export function Industries() {
             id="industries-heading"
             className="mt-5 font-[family-name:var(--font-hero)] text-[clamp(2rem,1.1rem+2.9vw,3.6rem)] leading-[1.1] font-bold tracking-[-0.03em] text-white"
           >
-            Serving organizations
+            Serving organisations
             <br className="hidden sm:block" /> that run on technology.
           </h2>
           <p className="mt-5 text-[clamp(1rem,0.95rem+0.25vw,1.15rem)] leading-[1.6] text-white/75">

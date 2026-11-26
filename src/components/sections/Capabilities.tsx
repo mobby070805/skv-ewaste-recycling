@@ -365,7 +365,7 @@ function DataSecurity() {
           {/* Data Destruction */}
           <Reveal as="article" delay={120} className="lg:mt-24">
             <ServiceAnchor name="Blancco Data Erasing" />
-            <ServiceAnchor name="Data Sanitization" />
+            <ServiceAnchor name="Data Sanitisation" />
             <div className="relative aspect-[4/3] overflow-hidden">
               <Image
                 src={erasure}

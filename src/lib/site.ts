@@ -109,7 +109,7 @@ export const serviceNames = [
   "IT Office Demolition",
   "HDD Degaussing",
   "Blancco Data Erasing",
-  "Data Sanitization",
+  "Data Sanitisation",
   "IT Asset Recovery",
   "Desktop & Laptop Buyback",
   "Infrastructure Disposal",

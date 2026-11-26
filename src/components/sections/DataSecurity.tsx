@@ -23,7 +23,7 @@ const methods = [
     body: "Hard drives, SSDs and other storage media are physically destroyed by shredding or crushing.",
   },
   {
-    title: "Data sanitization",
+    title: "Data sanitisation",
     body: "Approved methods are combined to suit the media type and its next use, so sensitive information cannot be recovered.",
   },
 ];

@@ -94,7 +94,7 @@ export function Hero() {
 
           <p className="relative mt-6 max-w-[28.6em] text-[1rem] leading-[1.52] font-semibold text-[#3a4842] max-md:mt-4 max-md:max-w-[52%] max-md:text-[0.8rem] max-md:leading-[1.45] max-md:font-medium max-md:text-white/90 lg:mt-[1.3em] lg:text-[length:max(15px,0.975em)]">
             Responsible collection, recycling and secure disposal of electronic
-            waste and retired IT assets for corporate organizations.
+            waste and retired IT assets for corporate organisations.
           </p>
 
           <div className="relative mt-8 flex flex-col gap-3 max-md:mt-5 max-md:max-w-[50%] max-md:items-stretch sm:flex-row sm:gap-[1.15rem] lg:mt-[2.05em] lg:gap-[0.9em]">

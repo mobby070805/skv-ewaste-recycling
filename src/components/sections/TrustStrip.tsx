@@ -6,7 +6,7 @@ import { certifications, offices } from "@/lib/site";
 /**
  * Every statement below is published on SKV's existing website:
  * - certification marks (home & about pages)
- * - TNPCB policies and "Authorized Collector & Bulk Consumer" (home & about)
+ * - TNPCB policies and "Authorised Collector & Bulk Consumer" (home & about)
  * - office addresses (footer)
  * - 10K+ projects and 15+ warehouses (about page)
  */
