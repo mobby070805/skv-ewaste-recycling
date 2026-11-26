@@ -11,7 +11,7 @@ const slides: Slide[] = [
     image: boards,
     alt: "Pile of retired circuit boards and graphics cards collected for recycling",
     caption: "Circuit boards & components",
-    position: "50% 40%",
+    position: "50% 50%",
   },
   {
     image: collection,

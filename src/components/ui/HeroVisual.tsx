@@ -44,7 +44,7 @@ export function HeroVisual({ className = "" }: { className?: string }) {
           src={artwork}
           alt=""
           fill
-          priority
+          preload
           sizes="(min-width: 1024px) 46vw, 100vw"
           className="object-cover object-center"
         />
