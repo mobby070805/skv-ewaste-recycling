@@ -29,10 +29,21 @@ function buildMessage(data: FormData) {
   ].join("\n");
 }
 
+/** Saves a copy of the enquiry to SKV's leads sheet (see app/api/leads). Fire-and-forget. */
+function recordLead(data: FormData, channel: "email" | "whatsapp") {
+  const payload = { ...Object.fromEntries(data), channel };
+  void fetch("/api/leads", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+    keepalive: true,
+  }).catch(() => {});
+}
+
 /**
- * The website has no mail server or CRM integration of its own, so submitting
- * hands the completed enquiry to the visitor's email app or WhatsApp,
- * addressed to SKV. Nothing is stored or transmitted by this website.
+ * Submitting saves a copy of the enquiry to SKV's Google Sheet in the
+ * background, then hands the completed enquiry to the visitor's email app or
+ * WhatsApp, addressed to SKV.
  */
 export function EnquiryForm() {
   const [sent, setSent] = useState<null | "email" | "whatsapp">(null);
@@ -62,6 +73,7 @@ export function EnquiryForm() {
     const channel = submitter?.value === "whatsapp" ? "whatsapp" : "email";
     const data = new FormData(form);
     const message = buildMessage(data);
+    recordLead(data, channel);
 
     if (channel === "whatsapp") {
       window.open(whatsappHref(message), "_blank", "noopener,noreferrer");
@@ -79,6 +91,11 @@ export function EnquiryForm() {
 
   return (
     <form onSubmit={onSubmit} className="grid grid-cols-2 gap-x-3 gap-y-4 sm:gap-x-5 sm:gap-y-5">
+      {/* Spam trap: hidden from people, often filled in by bots */}
+      <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+        <label htmlFor="enq-website">Website</label>
+        <input id="enq-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
       <div>
         <label htmlFor="enq-name" className={labelCls}>
           Full name <span aria-hidden="true">*</span>
@@ -199,7 +216,7 @@ export function EnquiryForm() {
         {sent === "whatsapp" &&
           `WhatsApp should now be open with the enquiry ready to send. If it did not open, call ${site.phoneDisplay}.`}
         {sent === null &&
-          "Submitting opens your email app or WhatsApp with these details filled in, addressed to SKV. This website does not store your information."}
+          "Submitting saves your enquiry so our team can follow up, and opens your email app or WhatsApp with these details filled in, addressed to SKV."}
       </p>
     </form>
   );

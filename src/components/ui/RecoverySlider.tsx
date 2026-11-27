@@ -107,12 +107,11 @@ export function RecoverySlider({ slides, className = "" }: { slides: Slide[]; cl
       {/* Green grade over every slide, darker toward the text side and the base */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-[2] bg-[#01341c]/25 mix-blend-multiply" />
       <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-2/5 bg-linear-to-t from-[#01341c]/85 to-transparent" />
-      {/* Seamless join with the green text panel: from the left on desktop, from the top when stacked */}
+      {/* Seamless join with the green text panel on desktop (stacked, it is an inset card) */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 z-[2] hidden w-[30%] bg-linear-to-r from-[#01341c] via-[#01341c]/60 to-transparent md:block" />
-      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 z-[2] h-1/4 bg-linear-to-b from-[#01341c] to-transparent md:hidden" />
 
       {/* Caption + indicators */}
-      <div className="absolute inset-x-0 bottom-0 z-[3] flex items-end justify-between gap-6 px-5 pb-5 sm:px-8 sm:pb-7 lg:px-10 lg:pb-9">
+      <div className="absolute inset-x-0 bottom-0 z-[3] flex items-end justify-between gap-6 px-4 pb-1 max-sm:flex-col max-sm:items-start max-sm:gap-0 sm:px-8 sm:pb-7 lg:px-10 lg:pb-9">
         <p aria-live="polite" className="font-display text-white">
           <span className="block text-[0.68rem] font-bold tracking-[0.14em] text-[#8fd36f] tabular-nums">
             {String(index + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
@@ -120,7 +119,7 @@ export function RecoverySlider({ slides, className = "" }: { slides: Slide[]; cl
           <span className="mt-1 block text-[0.95rem] font-semibold sm:text-[1.05rem]">{slides[index].caption}</span>
         </p>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 max-sm:-ml-1 max-sm:gap-1.5">
           {slides.map((s, i) => (
             <button
               key={s.caption}

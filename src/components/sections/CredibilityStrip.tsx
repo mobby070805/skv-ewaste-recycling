@@ -1,5 +1,6 @@
 import type { ComponentType, SVGProps } from "react";
 import { BuildingIcon, ClipboardCheckIcon, PinIcon, UsersIcon } from "@/components/ui/Icons";
+import { MobileLabel } from "@/components/ui/MobileLabel";
 import { stats } from "@/lib/site";
 
 const icons: ComponentType<SVGProps<SVGSVGElement>>[] = [ClipboardCheckIcon, UsersIcon, BuildingIcon, PinIcon];
@@ -25,30 +26,33 @@ export function CredibilityStrip() {
   return (
     <section
       aria-label="Credentials"
-      className="border-y border-[#ebe8e0] bg-[#faf8f3] font-[family-name:var(--font-hero)] text-[13.5px] sm:text-[15px] lg:text-[length:clamp(13px,1.1274vw,20.5px)]"
+      className="bg-[#faf8f3] md:border-y md:border-[#ebe8e0] font-[family-name:var(--font-hero)] text-[13.5px] sm:text-[15px] lg:text-[length:clamp(13px,1.1274vw,18.6px)]"
     >
-      {/* Phones: one row of four, icon on top, centred */}
-      <ul className="grid grid-cols-4 px-2 md:hidden">
-        {items.map(({ title, value, suffix, sub, Icon }, i) => (
-          <li
-            key={title}
-            className={`relative flex flex-col items-center px-1 py-5 text-center ${
-              i > 0
-                ? "before:absolute before:top-1/2 before:left-0 before:h-14 before:w-px before:-translate-y-1/2 before:bg-[#e2dfd6]"
-                : ""
-            }`}
-          >
-            <Icon className="size-8 text-[#0a5c1f]" strokeWidth={1.4} />
-            <p className="mt-2 text-[1.12rem] leading-none font-bold tracking-[-0.02em] text-[#0a5c1f]">
-              {value}
-              <span className="text-[#3d9f25]">{suffix}</span>
-            </p>
-            <p className="mt-1.5 text-[0.7rem] leading-snug font-semibold text-[#2f3b35]">{sub}</p>
-          </li>
-        ))}
-      </ul>
+      {/* Phones: "Our Key Values" card in light green, one row of four */}
+      <div className="px-4 pb-6 md:hidden">
+        <div className="rounded-2xl bg-[#edf3e4] px-2 pt-5 pb-5">
+          <MobileLabel>Our Key Values</MobileLabel>
+          <ul className="mt-4 grid grid-cols-4">
+            {items.map(({ title, value, suffix, sub, Icon }, i) => (
+              <li
+                key={title}
+                className={`relative flex flex-col items-center px-1 text-center ${
+                  i > 0 ? "before:absolute before:top-1 before:bottom-1 before:left-0 before:w-px before:bg-[#d3dccb]" : ""
+                }`}
+              >
+                <Icon className="size-8 text-[#2c8a35]" strokeWidth={1.5} />
+                <p className="mt-2 text-[1.2rem] leading-none font-extrabold tracking-[-0.02em] text-[#11261a]">
+                  {value}
+                  {suffix}
+                </p>
+                <p className="mt-1.5 text-[0.7rem] leading-snug font-medium text-[#22302a]">{sub}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
 
-      <ul className="mx-auto grid w-full grid-cols-2 px-5 max-md:hidden sm:px-8 md:px-10 lg:grid-cols-[333fr_356fr_378fr_373fr] lg:px-[max(4vw,min(8vw,calc(20.83vw_-_266px)))]">
+      <ul className="mx-auto grid w-full grid-cols-2 px-5 max-md:hidden sm:px-8 md:px-10 lg:grid-cols-[333fr_356fr_378fr_373fr] lg:px-[max(4vw,calc((100vw_-_95rem)/2))] 2xl:px-[max(5vw,calc((100vw_-_95rem)/2))]">
         {items.map(({ title, value, suffix, sub, Icon }, i) => (
           <li
             key={title}

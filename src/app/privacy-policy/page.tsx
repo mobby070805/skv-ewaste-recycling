@@ -17,17 +17,20 @@ export default function PrivacyPolicy() {
       </p>
       <h2>Enquiries</h2>
       <p>
-        The enquiry form on this website does not send or store your details
-        on our web servers. When you submit it, your own email application or
-        WhatsApp opens with the details you entered, and the enquiry reaches
-        SKV only when you choose to send that message. Information you send us
-        by email, phone or WhatsApp is used to respond to your enquiry and to
-        provide the services you request.
+        When you submit the enquiry form, the details you entered (name,
+        company, phone, email, service, location and requirements) are saved
+        to SKV&rsquo;s enquiry records so our team can follow up, and your
+        own email application or WhatsApp opens with the same details for you
+        to send. Information you share with us through the form, email, phone
+        or WhatsApp is used only to respond to your enquiry and to provide the
+        services you request.
       </p>
       <h2>Third-party services</h2>
       <p>
-        Messages sent by email or WhatsApp are handled by your chosen
-        provider under that provider&rsquo;s own terms and privacy policy.
+        Enquiry records are kept in Google Sheets, operated by Google on
+        SKV&rsquo;s behalf. Messages sent by email or WhatsApp are handled by
+        your chosen provider under that provider&rsquo;s own terms and
+        privacy policy.
         Links to external websites, including our social media pages, are
         likewise governed by those sites&rsquo; policies.
       </p>

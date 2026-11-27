@@ -30,8 +30,17 @@ export function Faq() {
                   aria-hidden="true"
                   className="relative grid size-8 shrink-0 place-items-center rounded-full border-[1.5px] border-[#0a5c1f]/40 text-[#0a5c1f] transition-colors group-open:border-[#0a5c1f] group-open:bg-[#0a5c1f] group-open:text-white"
                 >
-                  <span className="absolute h-[1.5px] w-3 bg-current" />
-                  <span className="absolute h-3 w-[1.5px] bg-current transition-transform group-open:rotate-90 group-open:opacity-0" />
+                  <svg
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="size-3.5 transition-transform duration-300 group-open:rotate-180 motion-reduce:transition-none"
+                  >
+                    <path d="M3.5 6 8 10.5 12.5 6" />
+                  </svg>
                 </span>
               </summary>
               <p className="max-w-[44rem] pr-12 pb-6 text-[0.98rem] leading-[1.7] text-[#3a4842]">{f.a}</p>

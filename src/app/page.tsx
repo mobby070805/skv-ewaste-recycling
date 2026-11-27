@@ -15,6 +15,7 @@ import { Process } from "@/components/sections/Process";
 import { RecyclingBanner } from "@/components/sections/RecyclingBanner";
 import { WhatWeRecycle } from "@/components/sections/WhatWeRecycle";
 import { WhySkv } from "@/components/sections/WhySkv";
+import { SwipeAutoplay } from "@/components/ui/SwipeAutoplay";
 import { faqs } from "@/lib/faq";
 import { offices, serviceNames, serviceSlug, site } from "@/lib/site";
 
@@ -146,6 +147,7 @@ export default function Home() {
       </main>
       <Footer />
       <MobileActionBar />
+      <SwipeAutoplay />
     </>
   );
 }

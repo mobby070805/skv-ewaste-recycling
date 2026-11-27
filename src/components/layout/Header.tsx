@@ -64,7 +64,7 @@ export function Header() {
 
       {/* Utility bar (scrolls away) */}
       <div className="hidden bg-[#014e2c] font-[family-name:var(--font-hero)] text-white md:block">
-        <div className="mx-auto w-full px-5 sm:px-8 md:px-10 lg:px-[max(4vw,min(8vw,calc(20.83vw_-_266px)))] flex h-10 items-center justify-between text-[0.75rem] font-medium">
+        <div className="mx-auto w-full px-5 sm:px-8 md:px-10 lg:px-[max(4vw,calc((100vw_-_95rem)/2))] 2xl:px-[max(5vw,calc((100vw_-_95rem)/2))] flex h-10 items-center justify-between text-[0.75rem] font-medium">
           <p className="flex items-center gap-3">
             <span aria-hidden="true" className="size-[0.4rem] rounded-full bg-[#4cc23a]" />
             <span>Corporate e-waste collection across Chennai &amp; Mumbai</span>
@@ -94,7 +94,7 @@ export function Header() {
           scrolled && !open ? "shadow-[0_1px_0_rgba(0,0,0,0.05),0_10px_30px_-20px_rgba(1,52,28,0.35)]" : ""
         }`}
       >
-        <div className="mx-auto w-full px-5 sm:px-8 md:px-10 lg:px-[max(4vw,min(8vw,calc(20.83vw_-_266px)))] flex h-[4.5rem] items-center justify-between gap-3 sm:gap-5 lg:h-[5.6rem] xl:h-[min(5.4vw,6.5rem)]">
+        <div className="mx-auto w-full px-5 sm:px-8 md:px-10 lg:px-[max(4vw,calc((100vw_-_95rem)/2))] 2xl:px-[max(5vw,calc((100vw_-_95rem)/2))] flex h-[4.5rem] items-center justify-between gap-3 sm:gap-5 lg:h-[5.6rem] xl:h-[min(5.4vw,6.5rem)]">
           <Link
             href="/#top"
             aria-label={`${site.name} — home`}
@@ -142,7 +142,7 @@ export function Header() {
             <a
               href={enquiryHref}
               onClick={close}
-              className="relative z-50 hidden h-10 shrink-0 items-center gap-1.5 rounded-md whitespace-nowrap bg-[#0a5c1f] px-[0.9rem] text-[0.72rem] font-bold tracking-[0.03em] text-white uppercase shadow-[0_8px_18px_-10px_rgba(1,52,28,0.7)] transition-colors hover:bg-[#01341c] sm:inline-flex xl:h-[min(2.95vw,3.6rem)] xl:gap-2.5 xl:rounded-lg xl:px-[min(1.75vw,2.1rem)] xl:text-[length:min(0.8vw,0.98rem)]"
+              className="relative z-50 hidden h-10 shrink-0 items-center gap-1.5 rounded-md whitespace-nowrap bg-[#3d9f25] px-[0.9rem] text-[0.72rem] font-bold tracking-[0.03em] text-white uppercase shadow-[0_8px_18px_-10px_rgba(1,52,28,0.7)] transition-colors hover:bg-[#2f8a1b] sm:inline-flex xl:h-[min(2.95vw,3.6rem)] xl:gap-2.5 xl:rounded-lg xl:px-[min(1.75vw,2.1rem)] xl:text-[length:min(0.8vw,0.98rem)]"
             >
               Request a Pickup
               <span aria-hidden="true">→</span>
@@ -150,7 +150,7 @@ export function Header() {
             <a
               href={enquiryHref}
               onClick={close}
-              className="relative z-50 inline-flex h-11 items-center rounded-xl bg-[#0a5c1f] px-3.5 text-[0.76rem] font-bold tracking-[0.02em] text-white uppercase shadow-[0_8px_18px_-10px_rgba(1,52,28,0.7)] transition-colors hover:bg-[#01341c] sm:hidden"
+              className="relative z-50 inline-flex h-11 items-center rounded-xl bg-[#3d9f25] px-3.5 text-[0.76rem] font-bold tracking-[0.02em] text-white uppercase shadow-[0_8px_18px_-10px_rgba(1,52,28,0.7)] transition-colors hover:bg-[#2f8a1b] sm:hidden"
             >
               Book Now
             </a>
@@ -195,7 +195,7 @@ export function Header() {
             <a
               href={enquiryHref}
               onClick={close}
-              className="flex h-13 items-center justify-center gap-2 rounded-lg bg-[#0a5c1f] text-[0.85rem] font-bold text-white uppercase"
+              className="flex h-13 items-center justify-center gap-2 rounded-lg bg-[#3d9f25] text-[0.85rem] font-bold text-white uppercase"
             >
               Request a Pickup <span aria-hidden="true">→</span>
             </a>

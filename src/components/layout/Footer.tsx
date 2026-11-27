@@ -33,37 +33,41 @@ const socialLogos: Record<string, (p: LogoProps) => React.JSX.Element> = {
   Instagram: InstagramLogo,
 };
 
-const heading = "font-display text-[0.7rem] font-bold tracking-[0.08em] text-white uppercase";
-const linkCls = "inline-block py-1.5 text-[0.94rem] text-white/70 transition-colors hover:text-[#8fd36f] lg:py-0";
+const heading = "font-display text-[0.7rem] font-bold tracking-[0.08em] text-[#0a5c1f] uppercase";
+const linkCls = "inline-block py-1.5 text-[0.94rem] text-[#3c4a43] transition-colors hover:text-[#3d9f25] lg:py-0";
 
+/** Phones show only the four core services (same as the Core Services section). */
+const coreServices = new Set<string>(["E-Waste Recycling", "IT Office Demolition", "HDD Degaussing", "IT Asset Recovery"]);
+
+/** Phones show four links per column: "desktopOnly" ones and Home (the logo links home) are hidden there. */
 const usefulLinks = [
   { label: "What We Recycle", href: "/#what-we-recycle" },
-  { label: "IT Asset Management", href: "/#it-asset-management" },
+  { label: "IT Asset Management", href: "/#it-asset-management", desktopOnly: true },
   { label: "Data Destruction", href: "/#service-data-sanitisation" },
-  { label: "Recycling Process", href: "/#process" },
+  { label: "Recycling Process", href: "/#process", desktopOnly: true },
   { label: "Locations", href: "/#locations" },
   { label: "FAQs", href: "/#faq" },
 ];
 
 export function Footer() {
   return (
-    <footer className="bg-[#0b2619] text-white">
+    <footer className="border-t border-[#e6e3da] bg-[#faf8f3] text-[#14231d]">
       <div className={`${container} py-16 lg:py-20`}>
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-12 lg:grid-cols-12 lg:gap-10">
           <div className="col-span-2 lg:col-span-4">
             <Link
               href="/#top"
               aria-label={`${site.name} — back to top`}
-              className="inline-block rounded-md bg-[#faf8f3] px-4 py-3"
+              className="inline-block"
             >
               <Image src={logo} alt={site.legalName} sizes="220px" className="h-10 w-auto" />
             </Link>
-            <p className="mt-6 max-w-[24rem] text-[0.94rem] leading-[1.65] text-white/70">
+            <p className="mt-6 max-w-[24rem] text-[0.94rem] leading-[1.65] text-[#3c4a43]">
               Corporate e-waste collection, recycling, IT asset disposal, HDD
               degaussing and data destruction for businesses in Chennai and
               Mumbai.
             </p>
-            <p className="mt-5 flex items-center gap-3 font-display text-[0.78rem] font-bold text-white/85">
+            <p className="mt-5 flex items-center gap-3 font-display text-[0.78rem] font-bold text-[#14231d]">
               <span aria-hidden="true" className="h-[2px] w-6 bg-[#5bbd3c]" />
               {certifications.join(" · ")} certified
             </p>
@@ -71,9 +75,9 @@ export function Footer() {
 
           <nav aria-label="Footer — services" className="col-span-2 sm:col-span-1 lg:col-span-3">
             <h2 className={heading}>Services</h2>
-            <ul className="mt-4 grid grid-cols-2 gap-x-4 sm:block sm:space-y-0.5 lg:mt-5 lg:space-y-3">
+            <ul className="mt-4 grid grid-cols-2 gap-x-6 sm:block sm:space-y-0.5 lg:mt-5 lg:space-y-3">
               {serviceNames.map((name) => (
-                <li key={name}>
+                <li key={name} className={coreServices.has(name) ? "" : "max-md:hidden"}>
                   <Link href={`/#service-${serviceSlug(name)}`} className={linkCls}>
                     {name}
                   </Link>
@@ -86,7 +90,7 @@ export function Footer() {
             <h2 className={heading}>Company</h2>
             <ul className="mt-4 space-y-0.5 lg:mt-5 lg:space-y-3">
               {navLinks.map((l) => (
-                <li key={l.href}>
+                <li key={l.href} className={l.label === "Home" ? "max-md:hidden" : ""}>
                   <Link href={l.href} className={linkCls}>
                     {l.label}
                   </Link>
@@ -99,7 +103,7 @@ export function Footer() {
             <h2 className={heading}>Explore</h2>
             <ul className="mt-4 space-y-0.5 lg:mt-5 lg:space-y-3">
               {usefulLinks.map((l) => (
-                <li key={l.href}>
+                <li key={l.href} className={"desktopOnly" in l ? "max-md:hidden" : ""}>
                   <Link href={l.href} className={linkCls}>
                     {l.label}
                   </Link>
@@ -109,12 +113,12 @@ export function Footer() {
           </nav>
         </div>
 
-        <div className="mt-14 grid gap-10 border-t border-white/12 pt-10 lg:grid-cols-12 lg:gap-10">
+        <div className="mt-14 grid gap-10 border-t border-[#e6e3da] pt-10 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-4">
             <h2 className={heading}>Contact</h2>
             <ul className="mt-4 space-y-0.5 lg:mt-5 lg:space-y-3">
               <li>
-                <a href={site.phoneHref} className="font-display text-[1.15rem] font-bold hover:text-[#8fd36f]">
+                <a href={site.phoneHref} className="font-display text-[1.15rem] font-bold text-[#0a5c1f] hover:text-[#3d9f25]">
                   {site.phoneDisplay}
                 </a>
               </li>
@@ -138,7 +142,7 @@ export function Footer() {
                   <p className="font-display text-[0.95rem] font-bold">
                     {o.city} — {o.area}
                   </p>
-                  <address className="mt-2 text-[0.88rem] leading-[1.6] text-white/60 not-italic">
+                  <address className="mt-2 text-[0.88rem] leading-[1.6] text-[#4a5751] not-italic">
                     {o.lines.join(" ")}
                   </address>
                 </li>
@@ -147,7 +151,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-white/12 pt-8 text-[0.85rem] text-white/55 md:flex-row md:items-center md:justify-between">
+        <div className="mt-14 flex flex-col gap-4 border-t border-[#e6e3da] pt-8 text-[0.85rem] text-[#5a6660] md:flex-row md:items-center md:justify-between">
           <p>© 2026 {site.legalName} All rights reserved.</p>
           <ul className="flex flex-wrap items-center gap-x-6 gap-y-2">
             <li>
@@ -162,7 +166,7 @@ export function Footer() {
                         rel="noopener noreferrer"
                         aria-label={`SKV on ${s.label}`}
                         title={s.label}
-                        className="grid size-11 place-items-center rounded-full bg-white/10 text-white transition-colors hover:bg-[#8fd36f] hover:text-[#032b17] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8fd36f]"
+                        className="grid size-11 place-items-center rounded-full bg-[#e5f3d7] text-[#1d5e33] transition-colors hover:bg-[#3d9f25] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3d9f25]"
                       >
                         <Logo className="size-5" />
                       </a>
@@ -172,12 +176,12 @@ export function Footer() {
               </ul>
             </li>
             <li>
-              <Link href="/privacy-policy" className="hover:text-[#8fd36f]">
+              <Link href="/privacy-policy" className="hover:text-[#3d9f25]">
                 Privacy Policy
               </Link>
             </li>
             <li>
-              <Link href="/terms-of-use" className="hover:text-[#8fd36f]">
+              <Link href="/terms-of-use" className="hover:text-[#3d9f25]">
                 Terms of Use
               </Link>
             </li>

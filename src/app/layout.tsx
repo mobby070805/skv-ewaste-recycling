@@ -16,7 +16,7 @@ const bricolage = Bricolage_Grotesque({
 const montserrat = Montserrat({
   variable: "--font-hero",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["500", "600", "700", "800"],
   display: "swap",
 });
 

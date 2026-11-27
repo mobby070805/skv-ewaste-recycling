@@ -81,7 +81,7 @@ export function About() {
         </div>
 
         {/* Figure */}
-        <div className="relative h-[20rem] sm:h-[34rem] lg:h-auto lg:min-h-[34rem]">
+        <div className="relative h-[26rem] sm:h-[34rem] lg:h-auto lg:min-h-[34rem]">
           {/* Soft green disc behind the figure */}
           <div
             aria-hidden="true"
@@ -98,11 +98,11 @@ export function About() {
             placeholder="blur"
             sizes="(min-width: 1024px) 42vw, 90vw"
             fill
-            className="object-contain object-bottom pt-6 lg:pt-[12%]"
+            className="object-contain object-bottom pt-[6.75rem] sm:pt-6 lg:pt-[12%]"
           />
 
           {/* Credential card */}
-          <div className="absolute top-4 left-0 flex max-w-[17.5rem] items-center gap-3.5 rounded-[0.8rem] bg-white/95 p-4 shadow-[0_24px_48px_-24px_rgba(1,52,28,0.45)] ring-1 ring-[#01341c]/5 backdrop-blur-sm sm:top-10 lg:top-[26%] lg:left-0 xl:max-w-[18.5rem]">
+          <div className="absolute top-4 left-0 flex max-w-[17.5rem] items-center gap-3.5 rounded-[0.8rem] bg-white/95 p-4 shadow-[0_24px_48px_-24px_rgba(1,52,28,0.45)] ring-1 ring-[#01341c]/5 backdrop-blur-sm max-sm:top-1 sm:top-10 lg:top-[26%] lg:left-0 xl:max-w-[18.5rem]">
             <span className="grid size-11 shrink-0 place-items-center rounded-[0.8rem] bg-[#e5f3d7] text-[#1d5e33]">
               <AwardIcon className="size-[1.35rem]" strokeWidth={1.9} />
             </span>

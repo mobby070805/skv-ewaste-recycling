@@ -45,7 +45,7 @@ const gutterL =
 /**
  * Full-width banner: the copy sits fixed on a deep-green panel on the left;
  * a crossfading photo slider fills the right ~60 % and dissolves into the
- * panel. Stacks copy-first on phones, with the slider below.
+ * panel. Stacks copy-first on phones, with the slider below as an inset rounded card.
  */
 export function RecyclingBanner() {
   return (
@@ -56,7 +56,7 @@ export function RecyclingBanner() {
     >
       <div className="grid md:min-h-[30rem] md:grid-cols-[minmax(0,0.42fr)_minmax(0,0.58fr)] lg:min-h-[34rem] xl:min-h-[38rem]">
         {/* Copy */}
-        <div className={`relative z-10 flex items-center py-16 sm:py-20 md:py-20 lg:py-24 ${gutterL}`}>
+        <div className={`relative z-10 flex items-center pt-12 pb-8 sm:pt-16 sm:pb-10 md:py-20 lg:py-24 ${gutterL}`}>
           <div className="max-w-[30rem] md:-mr-16 lg:-mr-24">
             <p className="flex items-center gap-4 font-display text-[0.75rem] font-bold tracking-[0.16em] text-[#8fd36f] uppercase lg:text-[0.7rem] xl:text-[0.76rem]">
               <span aria-hidden="true" className="h-[2px] w-8 shrink-0 bg-[#5bbd3c]" />
@@ -64,20 +64,20 @@ export function RecyclingBanner() {
             </p>
             <h2
               id="recycling-heading"
-              className="mt-6 font-[family-name:var(--font-hero)] text-[clamp(2.2rem,1.4rem+2.6vw,3.9rem)] leading-[1.06] font-bold tracking-[-0.03em]"
+              className="mt-5 font-[family-name:var(--font-hero)] text-[clamp(2.2rem,1.4rem+2.6vw,3.9rem)] leading-[1.06] font-bold tracking-[-0.03em]"
             >
               Beyond Waste.
               <br />
               <span className="text-[#a6dd86]">Into Resource Recovery.</span>
             </h2>
-            <p className="mt-6 max-w-[26rem] text-[clamp(1rem,0.94rem+0.3vw,1.14rem)] leading-[1.7] text-white/80">
+            <p className="mt-5 max-w-[26rem] text-[clamp(1rem,0.94rem+0.3vw,1.14rem)] leading-[1.65] md:mt-6 md:leading-[1.7] text-white/80">
               We recover metals, plastics and reusable components from retired
               electronics and put them back to work.
             </p>
-            <div className="mt-9 flex">
+            <div className="mt-7 flex md:mt-9">
               <a
                 href="#service-e-waste-recycling"
-                className={`group w-full sm:w-auto ${outlineLightBtn}`}
+                className={`group ${outlineLightBtn} max-md:h-11 max-md:px-6`}
               >
                 Learn More
                 <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">
@@ -89,7 +89,7 @@ export function RecyclingBanner() {
         </div>
 
         {/* Slider */}
-        <RecoverySlider slides={slides} className="aspect-[4/3] sm:aspect-[16/10] md:aspect-auto md:h-full" />
+        <RecoverySlider slides={slides} className="mx-5 mb-12 aspect-[4/3] rounded-2xl ring-1 ring-white/10 sm:mx-8 sm:aspect-[16/10] md:m-0 md:aspect-auto md:h-full md:rounded-none md:ring-0" />
       </div>
     </section>
   );

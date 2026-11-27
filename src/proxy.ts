@@ -37,7 +37,7 @@ export function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
-    // Everything except Next.js internals and this site's own static files.
-    "/((?!_next/|robots\\.txt$|sitemap\\.xml$|icon\\.png$|og-image\\.jpg$).*)",
+    // Everything except Next.js internals, the leads API and this site's own static files.
+    "/((?!_next/|api/leads$|robots\\.txt$|sitemap\\.xml$|icon\\.png$|og-image\\.jpg$).*)",
   ],
 };

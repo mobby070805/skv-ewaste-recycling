@@ -88,8 +88,8 @@ export function Lede({
 const btnBase =
   "inline-flex h-12 items-center justify-center gap-3 rounded-lg px-7 font-display text-[0.8rem] font-bold tracking-[0.03em] uppercase transition-colors xl:h-[3.25rem] xl:text-[0.84rem]";
 
-/** Same solid dark-green button as the hero's primary CTA. */
-export const primaryBtn = `${btnBase} bg-[#0a5c1f] text-white shadow-[0_12px_24px_-14px_rgba(1,52,28,0.9)] hover:bg-[#01341c]`;
+/** Same solid accent-green button as the hero's primary CTA. */
+export const primaryBtn = `${btnBase} bg-[#3d9f25] text-white shadow-[0_12px_24px_-14px_rgba(1,52,28,0.9)] hover:bg-[#2f8a1b]`;
 /** Same outline button as the hero's secondary CTA. */
 export const outlineBtn = `${btnBase} border-[1.5px] border-[#0a5c1f] text-[#0a5c1f] hover:bg-[#0a5c1f] hover:text-white`;
 /** Variants for dark-green sections. */

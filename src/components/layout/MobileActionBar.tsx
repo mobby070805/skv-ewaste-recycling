@@ -47,7 +47,7 @@ export function MobileActionBar() {
       <a
         href={site.phoneHref}
         aria-label={`Call now: ${site.phoneDisplay}`}
-        className={`${fab} bg-[#0a5c1f]`}
+        className={`${fab} bg-[#3d9f25]`}
       >
         <PhoneIcon className="size-6" />
       </a>
