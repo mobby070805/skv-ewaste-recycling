@@ -5,11 +5,9 @@ import { container } from "@/components/ui/Section";
 import {
   certifications,
   navLinks,
-  offices,
   serviceNames,
   serviceSlug,
   site,
-  whatsappHref,
 } from "@/lib/site";
 
 type LogoProps = { className?: string };
@@ -111,44 +109,6 @@ export function Footer() {
               ))}
             </ul>
           </nav>
-        </div>
-
-        <div className="mt-14 grid gap-10 border-t border-[#e6e3da] pt-10 lg:grid-cols-12 lg:gap-10">
-          <div className="lg:col-span-4">
-            <h2 className={heading}>Contact</h2>
-            <ul className="mt-4 space-y-0.5 lg:mt-5 lg:space-y-3">
-              <li>
-                <a href={site.phoneHref} className="font-display text-[1.15rem] font-bold text-[#0a5c1f] hover:text-[#3d9f25]">
-                  {site.phoneDisplay}
-                </a>
-              </li>
-              <li>
-                <a href={`mailto:${site.email}`} className={linkCls}>
-                  {site.email}
-                </a>
-              </li>
-              <li>
-                <a href={whatsappHref()} target="_blank" rel="noopener noreferrer" className={linkCls}>
-                  WhatsApp enquiry
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div className="max-md:hidden lg:col-span-8">
-            <h2 className={heading}>Offices</h2>
-            <ul className="mt-5 grid gap-8 sm:grid-cols-3">
-              {offices.map((o) => (
-                <li key={o.street}>
-                  <p className="font-display text-[0.95rem] font-bold">
-                    {o.city} — {o.area}
-                  </p>
-                  <address className="mt-2 text-[0.88rem] leading-[1.6] text-[#4a5751] not-italic">
-                    {o.lines.join(" ")}
-                  </address>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
 
         <div className="mt-14 flex flex-col gap-4 border-t border-[#e6e3da] pt-8 text-[0.85rem] text-[#5a6660] md:flex-row md:items-center md:justify-between">
