@@ -28,7 +28,8 @@ export default function PrivacyPolicy() {
       <h2>Third-party services</h2>
       <p>
         Enquiry records are kept in Google Sheets, operated by Google on
-        SKV&rsquo;s behalf. Messages sent by email or WhatsApp are handled by
+        SKV&rsquo;s behalf. The office map on our homepage is provided by
+        Google Maps, which loads from Google when you view it. Messages sent by email or WhatsApp are handled by
         your chosen provider under that provider&rsquo;s own terms and
         privacy policy.
         Links to external websites, including our social media pages, are

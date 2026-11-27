@@ -33,6 +33,7 @@ export const whatsappHref = (text?: string) =>
     text ? `?text=${encodeURIComponent(text)}` : ""
   }`;
 
+/** mapQuery finds each office's own Google Business listing (exact pin, name and reviews). */
 export const offices = [
   {
     city: "Chennai",
@@ -47,6 +48,7 @@ export const offices = [
     locality: "Chennai",
     region: "Tamil Nadu",
     postalCode: "600098",
+    mapQuery: "SKV E-Waste Recycling, Ambattur, Chennai",
   },
   {
     city: "Chennai",
@@ -60,6 +62,7 @@ export const offices = [
     locality: "Chennai",
     region: "Tamil Nadu",
     postalCode: "600113",
+    mapQuery: "SKV E-Waste Recycling, TIDEL Park, Taramani, Chennai",
   },
   {
     city: "Mumbai",
@@ -74,6 +77,7 @@ export const offices = [
     locality: "Mumbai",
     region: "Maharashtra",
     postalCode: "400053",
+    mapQuery: "SKV E-Waste Recycling, Andheri West, Mumbai",
   },
 ] as const;
 
